@@ -1,0 +1,27 @@
+{% extends "portal\base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'portal\css\alumno_listado.css' %}">
+{% endblock %}
+{% block title %}Listado Alumnos{% endblock %}
+{% block section_title %}Listado Alumnos{% endblock %}
+{% block content %} 
+    <h2>2023</h2>
+    <ul>
+        <!-- <li>Luis Sandrini</li>
+        <li>Pedro Capo</li>
+        <li>Libertad la Marque</li> -->
+        {% for nombre in listado%}
+            <li>
+                <p>Nombre completo: {{nombre | title}}</p>
+            </li>
+        {% empty %}
+            <p>Sin alumnos inscriptos</p>
+        {% endfor %}
+    </ul>
+    {% if cant_inscriptos == 0 %}
+        <p><b style="color: crimson;">No hay inscriptos</b></p>
+    {% else %}
+        <p>Cantidad de Inscriptos: <b style="color: crimson;">{{cant_inscriptos}}</b></p>
+    {%endif%}
+{% endblock %}

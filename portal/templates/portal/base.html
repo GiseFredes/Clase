@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula Virtual 2.0-{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'portal\css\base.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Esta es la plantilla base, aca va a estar lo común a todos los archivos html
+    Voy a crear tambien bloques estos van a ser rellenados por las plantillas hijas -->
+   <header>
+        <h1>Aula Virtual 2.0</h1>
+        <h2>{% block section_title %} {% endblock %}</h2>
+   </header> 
+   <nav>
+        <ul>
+            <li><a href="{% url 'indice'%}">Home</a></li>
+            <li><a href="{% url 'alumnos_listado'%}">Listado de Alumnos</a></li>
+            <li><a href="http://127.0.0.1:8000/alumnos/historico/2000">Historico Alumnos</a></li>
+        </ul>
+   </nav>
+   <main>
+        {% block content %} {% endblock %}
+   </main>
+   <footer>
+        <p>Todos los derechos reservados - Codo a codo 2023</p>
+   </footer>
+</body>
+</html>

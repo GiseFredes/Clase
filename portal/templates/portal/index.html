@@ -1,0 +1,22 @@
+{% extends "portal\base.html" %}
+{% load static %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'portal\css\index.css' %}">
+{% endblock %}
+{% block title %}Primera seccion{% endblock %}
+{% block section_title %}Página principal{% endblock %}
+{% block content %} 
+    <h1>Bienvenido al aula Virtual 2.0</h1>
+    <p>Usuario logueado como: <b>{{ nombre_usuario }}</b></p>
+
+    {% if es_instructor %}
+        <p style="color: red;">Rol: Instructor</p>
+    {% else %}
+        <p style="color: green;">Rol: Alumno</p>
+    {% endif %}
+    {% filter lower %}
+        <p>Dia de hoy: {{ fecha}}</p>
+        <h2>Listado de alumnos activos</h2>
+    {% endfilter %}
+    {% endblock %}
+
